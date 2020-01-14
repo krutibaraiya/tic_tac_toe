@@ -9,17 +9,18 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name=(EditText) findViewById(R.id.name);
+        TextView name = findViewById(R.id.name);
 
 
                 Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.rotate);

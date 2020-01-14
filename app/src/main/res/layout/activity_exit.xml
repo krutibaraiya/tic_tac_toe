@@ -6,7 +6,7 @@
     android:background="@drawable/exit"
     tools:context="com.example.tic_tac_toe.tictactoe">
 
-    <EditText
+    <TextView
         android:id="@+id/high_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

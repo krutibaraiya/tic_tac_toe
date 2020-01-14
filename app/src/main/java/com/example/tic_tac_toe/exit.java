@@ -12,9 +12,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 public class exit extends AppCompatActivity {
-    EditText high_score;
+
 
 
 
@@ -23,7 +25,7 @@ public class exit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exit);
 
-        high_score=(EditText) findViewById(R.id.high_score);
+        TextView high_score = findViewById(R.id.high_score);
 
 
         Animation animation = AnimationUtils.loadAnimation(exit.this, R.anim.blink_anim);
@@ -42,8 +44,23 @@ public class exit extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
+                .setMessage("Are you sure?")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        }
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                }).setNegativeButton("no", null).show();
+    }
+
+}
 
 
 
